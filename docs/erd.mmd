@@ -1,0 +1,36 @@
+erDiagram
+    USERS ||--o{ API_KEYS : owns
+    USERS {
+      uuid id PK
+      varchar name
+      varchar email UK
+      text password_hash
+      timestamptz created_at
+    }
+    API_KEYS {
+      uuid id PK
+      uuid user_id FK
+      varchar name
+      char key_hash UK
+      boolean is_active
+      integer request_count
+      timestamptz created_at
+      timestamptz last_used_at
+    }
+    LAPTOPS {
+      int id PK
+      varchar sku UK
+      varchar name
+      varchar brand
+      varchar model
+      varchar category
+      numeric price
+      int stock
+      numeric rating
+      varchar cpu
+      varchar gpu
+      int ram_gb
+      int storage_gb
+      jsonb specs
+      text image_url
+    }

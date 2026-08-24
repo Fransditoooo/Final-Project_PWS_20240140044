@@ -1,0 +1,12 @@
+
+digraph G {
+  rankdir=LR; node [fontname="Arial"];
+  User [shape=box, label="User / Developer"];
+  Client [shape=box, label="Client App"];
+  API [shape=ellipse, label="LaptopHub API"];
+  JWT [shape=ellipse, label="Login JWT"];
+  KEY [shape=ellipse, label="Manage API Key"];
+  DATA [shape=ellipse, label="Consume Laptop Data"];
+  DB [shape=cylinder, label="Supabase PostgreSQL"];
+  User -> JWT; User -> KEY; Client -> DATA; JWT -> API; KEY -> API; DATA -> API; API -> DB;
+}

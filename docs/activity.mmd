@@ -1,0 +1,13 @@
+flowchart TD
+    A([Mulai]) --> B[Client memiliki API Key]
+    B --> C[Request GET /api/v1/laptops]
+    C --> D{API Key ada?}
+    D -- Tidak --> E[401 Unauthorized]
+    D -- Ya --> F[Hash API Key]
+    F --> G{Key aktif & cocok?}
+    G -- Tidak --> E
+    G -- Ya --> H[Update request_count & last_used_at]
+    H --> I[Validasi query, filter & pagination]
+    I --> J[Query PostgreSQL / Supabase]
+    J --> K[Susun JSON response]
+    K --> L([Selesai])

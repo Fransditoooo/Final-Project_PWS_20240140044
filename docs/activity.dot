@@ -1,0 +1,14 @@
+
+digraph G {
+  rankdir=TB; node [fontname="Arial", shape=box];
+  start [shape=circle, label="Start"]; req [label="GET /api/v1/laptops"];
+  check [shape=diamond, label="API Key valid?"]; unauthorized [label="401 Unauthorized"];
+  usage [label="Update request_count & last_used_at"];
+  query [label="Query PostgreSQL"];
+  response [label="Return JSON"];
+  end [shape=doublecircle, label="End"];
+  start -> req -> check;
+  check -> unauthorized [label="No"];
+  check -> usage [label="Yes"];
+  usage -> query -> response -> end;
+}

@@ -1,0 +1,16 @@
+flowchart LR
+    User((User / Developer))
+    Admin((API Owner))
+    API[LaptopHub SaaS API]
+    DB[(Supabase PostgreSQL)]
+    Client[Client App / Website]
+
+    User -->|Register / Login| API
+    User -->|JWT| API
+    User -->|Create / Revoke API Key| API
+    Admin -->|Manage catalog / monitor usage| DB
+    Client -->|X-API-Key| API
+    API -->|Validate JWT| API
+    API -->|Validate API Key| DB
+    API -->|Read laptop catalog| DB
+    API -->|JSON response| Client

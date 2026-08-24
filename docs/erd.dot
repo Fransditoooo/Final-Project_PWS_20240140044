@@ -1,0 +1,8 @@
+
+digraph G {
+  rankdir=LR; node [shape=record, fontname="Arial"];
+  USERS [label="{USERS|id PK\lname\lemail UK\lpassword_hash\lcreated_at}"];
+  API_KEYS [label="{API_KEYS|id PK\luser_id FK\lname\lkey_hash UK\lis_active\lrequest_count\llast_used_at}"];
+  LAPTOPS [label="{LAPTOPS|id PK\lsku UK\lname\lbrand\lmodel\lcategory\lprice\lstock\nrating\lcpu / gpu\lram / storage\lspecs JSONB}"];
+  USERS -> API_KEYS [label="1 : N"];
+}
