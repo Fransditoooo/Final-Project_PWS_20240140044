@@ -5,6 +5,7 @@ import authRoutes from "./routes/auth.js";
 import apiKeyRoutes from "./routes/apiKeys.js";
 import laptopRoutes from "./routes/laptops.js";
 import adminRoutes from "./routes/admin.js";
+import adminLaptopRoutes from "./routes/adminLaptops.js";
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.use("/auth", authRoutes);
 app.use("/api-keys", apiKeyRoutes);
 app.use("/api/v1/laptops", laptopRoutes);
 app.use("/admin", adminRoutes);
+app.use("/admin", adminLaptopRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: "Endpoint tidak ditemukan." });
